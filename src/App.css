@@ -7,17 +7,7 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.header {
-    grid-area: h;
-    background-color: green;
-}
 
-.nav {
-    grid-area: n;
-    background-color: aquamarine;
-}
 
-.content {
-    grid-area: c;
-    background-color: aqua;
-}
+
+

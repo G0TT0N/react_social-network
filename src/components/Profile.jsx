@@ -1,8 +1,10 @@
 import React from 'react';
+import style from './Profile.module.css'
+
 
 const Profile = () => {
     return (
-        <div className='content'>
+        <div className={style.content}>
             <div>
                 <img
                     src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
