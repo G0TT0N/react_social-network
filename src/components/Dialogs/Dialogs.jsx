@@ -5,7 +5,8 @@ import style from './Dialogs.module.css';
 const Dialogs = (props) => {
     return (
         <div>
-            123
+            <p>123</p>
+            <p>321</p>
         </div>
     )
 };
