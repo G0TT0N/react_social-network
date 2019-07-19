@@ -36,18 +36,17 @@ const MyPosts = () => {
         }
     ];
 
+    let postsElement = postsData.map (
+        elem => <Posts message={elem.message} likeCount={elem.likesCount}/>
+    );
+
     return (
         <div className={style.postsBlock}>
             <div>
                 123
             </div>
             <div className={style.posts}>
-                <Posts message={postsData[0].message} likeCount={postsData[0].likesCount}/>
-                <Posts message={postsData[1].message} likeCount={postsData[1].likesCount}/>
-                <Posts message={postsData[2].message} likeCount={postsData[2].likesCount}/>
-                <Posts message={postsData[3].message} likeCount={postsData[3].likesCount}/>
-                <Posts message={postsData[4].message} likeCount={postsData[4].likesCount}/>
-                <Posts message={postsData[5].message} likeCount={postsData[5].likesCount}/>
+                {postsElement}
             </div>
 
         </div>
