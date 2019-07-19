@@ -4,9 +4,15 @@ import Posts from "./Post/Posts";
 
 const MyPosts = () => {
     return (
-        <div>
-            <Posts/>
-            <Posts/>
+        <div className={style.postsBlock}>
+            <div>
+                123
+            </div>
+            <div className={style.posts}>
+                <Posts/>
+                <Posts/>
+            </div>
+
         </div>
     )
 };
