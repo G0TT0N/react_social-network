@@ -1,17 +1,15 @@
 import React from 'react';
 import style from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 
 
 const Dialogs = (props) => {
-
-    let dialogElements = props.dialogsData.map(
+    let dialogElements = props.state.dialogsData.map(
         dialog => <DialogItem name={dialog.name} id={dialog.id}/>
     );
 
-    let messagesElements = props.messagesData.map(
+    let messagesElements = props.state.messagesData.map(
         message => <Message message={message.message}/>
     );
 

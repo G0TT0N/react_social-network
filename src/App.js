@@ -16,12 +16,17 @@ function App(props) {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route exact path='/profile' render={ () => <Profile postsData={props.postsData}/>}/>
-                    <Route exact path='/dialogs' render={ () => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
-                    <Route exact path='/news' render={ () => <News/>}/>
-                    <Route exact path='/music' render={ () => <Music/>}/>
-                    <Route exact path='/settings' render={ () => <Settings/>}/>
+                    <Route exact path='/profile' render={() => <Profile
+                        state={props.state.profilePage}/>}/>
+                    <Route exact path='/dialogs' render={() => <Dialogs
+                        state={props.state.dialogsPage}
+                        state={props.state.dialogsPage}/>}/>
+                    <Route exact path='/news' render={() => <News/>}/>
+                    <Route exact path='/music' render={() => <Music/>}/>
+                    <Route exact path='/settings' render={() => <Settings/>}/>
+
                 </div>
+
             </div>
         </BrowserRouter>
     );
