@@ -3,7 +3,7 @@ import style from './MyPosts.module.css';
 import Posts from "./Post/Posts";
 
 const MyPosts = (props) => {
-    let postsElement = props.postsData.map (
+    let postsElement = props.postsData.map(
         elem => <Posts message={elem.message} likeCount={elem.likesCount}/>
     );
 
@@ -11,7 +11,7 @@ const MyPosts = (props) => {
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text);
+        props.addPostBlock(text);
     };
 
     return (
@@ -22,13 +22,12 @@ const MyPosts = (props) => {
                     <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button onClick={ addPost }>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={style.posts}>
                 {postsElement}
             </div>
-
         </div>
     )
 };

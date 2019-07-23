@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     profilePage: {
         postsData: [
@@ -89,12 +91,19 @@ let state = {
         ]
     },
 
-    sidebar: {
-
-    }
+    sidebar: {}
 
 };
 
+export let addPostBlock = (postMessage) => {
+    let newPost = {
+        id: 7,
+        message: postMessage,
+        likesCount: 0
+    };
 
+    state.profilePage.postsData.push(newPost);
+    rerenderEntireTree(state);
+};
 
 export default state;
