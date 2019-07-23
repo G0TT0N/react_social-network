@@ -25,6 +25,7 @@ function App(props) {
                     <Route exact path='/music' render={() => <Music/>}/>
                     <Route exact path='/settings' render={() => <Settings/>}/>
 
+
                 </div>
 
             </div>

@@ -20,9 +20,6 @@ const Navbar = (props) => {
             <div className={style.item}>
                 <NavLink to="/settings" activeClassName={style.active}>Settings</NavLink>
             </div>
-
-
-
         </nav>
 
     )
