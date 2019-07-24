@@ -33,7 +33,8 @@ let state = {
                 message: 'qwe',
                 likesCount: 10
             }
-        ]
+        ],
+        newPostText: 'add new Post'
     },
 
     dialogsPage: {
@@ -95,15 +96,22 @@ let state = {
 
 };
 
-export let addPostBlock = (postMessage) => {
+export let addPostBlock = () => {
     let newPost = {
         id: 7,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     };
 
     state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+
 };
 
 export default state;
