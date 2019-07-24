@@ -1,121 +1,130 @@
-let rerenderEntireTree = () => {};
+let store = {
+    _state: {
+        profilePage: {
+            postsData: [
+                {
+                    id: 1,
+                    message: 'qwe',
+                    likesCount: 10
+                },
+                {
+                    id: 2,
+                    message: 'qwe',
+                    likesCount: 10
+                },
+                {
+                    id: 3,
+                    message: 'qwe',
+                    likesCount: 10
+                },
+                {
+                    id: 4,
+                    message: 'qwe',
+                    likesCount: 10
+                },
+                {
+                    id: 5,
+                    message: 'qwe',
+                    likesCount: 10
+                },
+                {
+                    id: 6,
+                    message: 'qwe',
+                    likesCount: 10
+                }
+            ],
+            newPostText: 'add new Post'
+        },
 
-let state = {
-    profilePage: {
-        postsData: [
-            {
-                id: 1,
-                message: 'qwe',
-                likesCount: 10
-            },
-            {
-                id: 2,
-                message: 'qwe',
-                likesCount: 10
-            },
-            {
-                id: 3,
-                message: 'qwe',
-                likesCount: 10
-            },
-            {
-                id: 4,
-                message: 'qwe',
-                likesCount: 10
-            },
-            {
-                id: 5,
-                message: 'qwe',
-                likesCount: 10
-            },
-            {
-                id: 6,
-                message: 'qwe',
-                likesCount: 10
-            }
-        ],
-        newPostText: 'add new Post'
+        dialogsPage: {
+            messagesData: [
+                {
+                    id: 1,
+                    message: '111'
+                },
+                {
+                    id: 2,
+                    message: '222'
+                },
+                {
+                    id: 3,
+                    message: '333'
+                },
+                {
+                    id: 4,
+                    message: '444'
+                },
+                {
+                    id: 5,
+                    message: '555'
+                },
+                {
+                    id: 6,
+                    message: '666'
+                }
+            ],
+            dialogsData: [
+                {
+                    id: 1,
+                    name: 'Andrew'
+                },
+                {
+                    id: 2,
+                    name: 'Sveta'
+                },
+                {
+                    id: 3,
+                    name: 'Maxim'
+                },
+                {
+                    id: 4,
+                    name: 'Igor'
+                },
+                {
+                    id: 5,
+                    name: 'Ivan'
+                },
+                {
+                    id: 6,
+                    name: 'Anton'
+                }
+            ]
+        },
+
+        sidebar: {}
+
     },
 
-    dialogsPage: {
-        messagesData: [
-            {
-                id: 1,
-                message: '111'
-            },
-            {
-                id: 2,
-                message: '222'
-            },
-            {
-                id: 3,
-                message: '333'
-            },
-            {
-                id: 4,
-                message: '444'
-            },
-            {
-                id: 5,
-                message: '555'
-            },
-            {
-                id: 6,
-                message: '666'
-            }
-        ],
-        dialogsData: [
-            {
-                id: 1,
-                name: 'Andrew'
-            },
-            {
-                id: 2,
-                name: 'Sveta'
-            },
-            {
-                id: 3,
-                name: 'Maxim'
-            },
-            {
-                id: 4,
-                name: 'Igor'
-            },
-            {
-                id: 5,
-                name: 'Ivan'
-            },
-            {
-                id: 6,
-                name: 'Anton'
-            }
-        ]
+    _callSubscriber() {
     },
 
-    sidebar: {}
+    getState(){
+        return this._state;
+    },
+
+    addPostBlock() {
+        let newPost = {
+            id: 7,
+            message: this._state.profilePage.newPostText,
+            likesCount: 0
+        };
+
+        this._state.profilePage.postsData.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);
+    },
+
+    updateNewPostText(newText) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state);
+
+    },
+
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    }
+
 
 };
 
-export const addPostBlock = () => {
-    let newPost = {
-        id: 7,
-        message: state.profilePage.newPostText,
-        likesCount: 0
-    };
-
-    state.profilePage.postsData.push(newPost);
-    state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
-};
-
-export const updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
-
-};
-
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer;
-};
-
-export default state;
+export default store;
