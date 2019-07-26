@@ -12,20 +12,35 @@ import Settings from "./components/Settings/Settings";
 
 function App(props) {
     return (
-            <div className='app-wrapper'>
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Route exact path='/profile' render={() => <Profile
+        <div className='app-wrapper'>
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                <Route exact path='/profile' render={() =>
+                    <Profile
                         profilePage={props.state.profilePage}
-                        dispatch={props.dispatch}/>}/>
-                    <Route exact path='/dialogs' render={() => <Dialogs
-                        state={props.state.dialogsPage}/>}/>
-                    <Route exact path='/news' render={() => <News/>}/>
-                    <Route exact path='/music' render={() => <Music/>}/>
-                    <Route exact path='/settings' render={() => <Settings/>}/>
-                </div>
+                        dispatch={props.dispatch}
+                    />}
+                />
+                <Route exact path='/dialogs' render={() =>
+                    <Dialogs
+                        state={props.state.dialogsPage}
+                    />}
+                />
+                <Route exact path='/news' render={() =>
+                    <News
+                    />}
+                />
+                <Route exact path='/music' render={() =>
+                    <Music
+                    />}
+                />
+                <Route exact path='/settings' render={() =>
+                    <Settings
+                    />}
+                />
             </div>
+        </div>
     );
 }
 

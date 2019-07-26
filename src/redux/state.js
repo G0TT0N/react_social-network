@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 let store = {
     _state: {
         profilePage: {
@@ -33,6 +36,7 @@ let store = {
                     likesCount: 10
                 }
             ],
+
             newPostText: 'add new Post'
         },
 
@@ -98,7 +102,7 @@ let store = {
     _callSubscriber() {
     },
 
-    getState(){
+    getState() {
         return this._state;
     },
 
@@ -107,7 +111,7 @@ let store = {
     },
 
     dispatch(action) {
-        if(action.type === 'ADD-POST-BLOCK'){
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 7,
                 message: this._state.profilePage.newPostText,
@@ -117,7 +121,7 @@ let store = {
             this._state.profilePage.postsData.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newPostText;
             this._callSubscriber(this._state);
         }
@@ -125,5 +129,10 @@ let store = {
 
 
 };
+
+export const addPostActionCreator = () => ({type: ADD_POST});
+
+export const updateNewPostTextActionCreator = (text) =>
+    ({type: UPDATE_NEW_POST_TEXT, newPostText: text});
 
 export default store;
