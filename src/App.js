@@ -12,28 +12,17 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 function App(props) {
-    debugger;
+debugger;
     return (
         <div className='app-wrapper'>
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route exact path='/profile' render={() =>
-                    <Profile store={props.store}/>}/>
-                <Route exact path='/dialogs' render={() =>
-                    <DialogsContainer store={props.store}/>}/>
-                <Route exact path='/news' render={() =>
-                    <News
-                    />}
-                />
-                <Route exact path='/music' render={() =>
-                    <Music
-                    />}
-                />
-                <Route exact path='/settings' render={() =>
-                    <Settings
-                    />}
-                />
+                <Route exact path='/profile' render={() => <Profile/>}/>
+                <Route exact path='/dialogs' render={() => <DialogsContainer/>}/>
+                <Route exact path='/news' render={() => <News/>}/>
+                <Route exact path='/music' render={() => <Music/>}/>
+                <Route exact path='/settings' render={() => <Settings/>}/>
             </div>
         </div>
     );
