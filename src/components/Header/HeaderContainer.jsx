@@ -6,12 +6,13 @@ import {usersAPI} from "../../api/api";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
-        usersAPI.authentification().then(response => {
-                if (response.data.resultCode === 0) {
-                    let  {id, login, email} = response.data.data;
-                    this.props.setAuthUserData(id, email, login)
-                }
-            });
+        usersAPI.authentification().then(data => {
+        debugger
+            if (data.resultCode === 0) {
+                let {id, login, email} = data.data;
+                this.props.setAuthUserData(id, email, login)
+            }
+        });
     }
 
     render() {
