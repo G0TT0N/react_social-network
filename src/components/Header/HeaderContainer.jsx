@@ -7,7 +7,6 @@ import {usersAPI} from "../../api/api";
 class HeaderContainer extends React.Component {
     componentDidMount() {
         usersAPI.authentification().then(data => {
-        debugger
             if (data.resultCode === 0) {
                 let {id, login, email} = data.data;
                 this.props.setAuthUserData(id, email, login)
