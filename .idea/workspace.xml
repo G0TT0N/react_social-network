@@ -47,7 +47,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -137,7 +137,8 @@
       <workItem from="1565093127318" duration="2435000" />
       <workItem from="1565095572178" duration="12494000" />
       <workItem from="1565155606945" duration="14198000" />
-      <workItem from="1565184053117" duration="20242000" />
+      <workItem from="1565184053117" duration="22570000" />
+      <workItem from="1565330168879" duration="9905000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;test2&quot;">
       <created>1563366236300</created>

@@ -8,12 +8,6 @@ const instance = axios.create({
     }
 });
 
-
-// export const getUsers = (currentPage = 1, pageSize = 10) => {
-//     return instance.get(`users?page=${currentPage}&count=${pageSize}`)
-//         .then(response => response.data);
-// };
-
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
@@ -31,14 +25,14 @@ export const usersAPI = {
     },
 
     getProfile(userId) {
-        console.warn('Obsolete method. Please profileAPI object.'); // обратная совместимость на другую АПИ.
-        return profileAPI.getProfile(userId);
+        console.warn('Obsolete method. Please profileAPI object.');
+        return profileAPI.getProfile(userId); // обратная совместимость на другую АПИ.
     }
 };
 
 export const profileAPI = {
     getProfile(userId) {
-        return instance(`profile/${userId}`)
+        return instance.get(`profile/` + userId)
             .then(response => response.data);
     },
 
