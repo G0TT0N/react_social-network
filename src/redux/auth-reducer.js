@@ -31,7 +31,7 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 
 export const getAuthUserData = (userId) => {
     return (dispatch) => {
-        authAPI.me().then(data => {
+       return  authAPI.me().then(data => {  // промис уходит в app-reducer
             if (data.resultCode === 0) {
                 let {id, login, email} = data.data;
                 dispatch(setAuthUserData(id, email, login, true));

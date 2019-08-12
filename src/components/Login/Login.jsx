@@ -34,9 +34,11 @@ const LoginForm = (props) => {
                     name={"rememberMe"}
                 /> remember me
             </div>
+
             {props.error && <div className={style.formSummaryError}> {/* покажет ошибку при неверных данных логина */}
                 {props.error}
             </div>}
+
             <div>
                 <button> Login</button>
             </div>
