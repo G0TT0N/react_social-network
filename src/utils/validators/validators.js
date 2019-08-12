@@ -1,9 +1,9 @@
-export const required = (value) => {
+export const required = (value) => { // если нет value то показать ошибку
     if (value) return undefined;
     return 'Field is required';
 };
 
-export const maxLengthCreator = (maxLength) => (value) => {
+export const maxLengthCreator = (maxLength) => (value) => {  // проверка максимальной длинны поля
     if (value.length > maxLength) return `Max length is ${maxLength} symbols`;
     return undefined;
 };

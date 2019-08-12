@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {TextArea} from "../../common/FormsControls/FormsControls";
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength10 = maxLengthCreator(10); // настройка валидатора
 
 const MyPosts = (props) => {
     let postsElement = props.postsData.map(elem =>
@@ -35,9 +35,9 @@ let AddNewPostForm = (props) => {
         <form onSubmit={props.handleSubmit}>
             <div>
                 <Field
-                    component={TextArea}
+                    component={TextArea} // импорт компоненты формы
                     name='newPostText'
-                    validate={[required, maxLength10]}
+                    validate={[required, maxLength10]} // подключение с переменной
                 />
             </div>
             <div>
