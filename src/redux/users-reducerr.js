@@ -22,7 +22,7 @@ const usersReducer = (state = initialState, action) => {
         case FOLLOW:
             return {
                 ...state,
-                users: state.users.map(user => {
+                users: state.users.map(user => { // идентичная запись users: [...state.users], но не получится запустить проверку
                     if (user.id === action.userId) {
                         return {...user, followed: true}
                     }

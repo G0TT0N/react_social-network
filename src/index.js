@@ -7,8 +7,8 @@ import App from "./App";
 import {Provider} from "react-redux";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Provider store={store}>
+    <BrowserRouter>   {/* позволяет использовать рендер компонент по ссылкам согласно их URL пути */}
+        <Provider store={store}> {/* контекст от реакт-редакса */}
             <App/>
         </Provider>
     </BrowserRouter>,

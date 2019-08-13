@@ -5,11 +5,10 @@ import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducerr";
 import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
-import { reducer as formReducer } from 'redux-form';
+import {reducer as formReducer} from 'redux-form';
 import appReducer from "./app-reducer";
 
-
-let reducers = combineReducers({
+let reducers = combineReducers({ // прокидывает редьюсеры, можно воспринимать как стейт
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer,
@@ -21,5 +20,6 @@ let reducers = combineReducers({
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
+window.store = store;
 
 export default store;

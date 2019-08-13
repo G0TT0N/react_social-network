@@ -1,6 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 
-const ADD_POST = 'ADD-POST';
+const ADD_POST = 'ADD-POST'; // констатны action type
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -39,7 +39,7 @@ let initialState = {
     ],
     profile: null,
     status: '',
-};
+}; // инициалиационный стейт, пока не получили актуальный с сервера
 
 //reducer
 const profileReducer = (state = initialState, action) => {
@@ -51,8 +51,8 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: 0
             };
             return {
-                ...state,
-                postsData: [...state.postsData, newPost],
+                ...state,// обязательно делать копию стейта перед изменениями
+                postsData: [...state.postsData, newPost], // не забывать делать глубокую копию (плюс опционально добавляется в конец массива новый объект)
                 newPostText: ''
             };
         }
@@ -78,7 +78,7 @@ export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostTe
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 
-//thunk
+//thunk-creator => thunk => {api.then.dispatch(action-creator)}
 export const getUserProfile = (userId) => (dispatch) => {
     usersAPI.getProfile(userId).then(data => {
         dispatch(setUserProfile(data));

@@ -156,7 +156,8 @@
       <workItem from="1565350637533" duration="787000" />
       <workItem from="1565351435188" duration="21000" />
       <workItem from="1565352112807" duration="9928000" />
-      <workItem from="1565598591398" duration="17177000" />
+      <workItem from="1565598591398" duration="17515000" />
+      <workItem from="1565686242550" duration="22529000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;test2&quot;">
       <created>1563366236300</created>
@@ -188,11 +189,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Settings/Settings.jsx</url>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/redux/store.js</url>
-          <line>5</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

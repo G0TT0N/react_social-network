@@ -63,8 +63,6 @@ let mapStateToProps = (state) => { // реализация через селек
     }
 };*/
 
-
-
 export default compose(
     connect(mapStateToProps, {
         follow,

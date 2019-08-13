@@ -21,7 +21,7 @@ class App extends Component {
     }
 
     render() {
-        if(!this.props.initialized){
+        if (!this.props.initialized) {
             return <Preloader/>;
         }
         return (
@@ -29,13 +29,15 @@ class App extends Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route exact path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                    <Route exact path='/dialogs' render={() => <DialogsContainer/>}/>
-                    <Route exact path='/news' render={() => <News/>}/>
-                    <Route exact path='/music' render={() => <Music/>}/>
-                    <Route exact path='/settings' render={() => <Settings/>}/>
-                    <Route exact path='/users' render={() => <UsersContainer/>}/>
-                    <Route exact path='/login' render={() => <Login/>}/>
+                    <Route exact path='/profile/:userId?' render={() => // Route указыввет по какуму пути path='/profile/:userId?' должен произойти рендер компоненты
+                        <ProfileContainer/>}/> {/* либо component={<ProfileContainer/>}, но тогда нельзя передать props */}
+                    <Route exact path='/dialogs' render={() =>
+                        <DialogsContainer/>}/> {/* атрибут exact заставляет отрисовывать в точности как указано в конце URL, не захватывая по пути знакомые компоненты  */}
+                    <Route path='/news' render={() => <News/>}/>
+                    <Route path='/music' render={() => <Music/>}/>
+                    <Route path='/settings' render={() => <Settings/>}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
+                    <Route path='/login' render={() => <Login/>}/>
                 </div>
             </div>
         );

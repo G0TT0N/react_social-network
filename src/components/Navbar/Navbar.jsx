@@ -6,7 +6,8 @@ const Navbar = (props) => {
     return (
         <nav className={style.nav}>
             <div className={style.item}>
-                <NavLink to="/profile" activeClassName={style.active}>Profile</NavLink>
+                <NavLink to="/profile"
+                         activeClassName={style.active}>Profile</NavLink> {/*  замена тега <a/>, отличие: не перезагружает страницу при переходе */}
             </div>
             <div className={style.item}>
                 <NavLink to="/users" activeClassName={style.active}>Users</NavLink>
