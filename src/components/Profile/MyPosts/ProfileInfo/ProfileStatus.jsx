@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class ProfileStatus extends Component {
+class ProfileStatus extends Component { // создаем классовую компоненту с жизенными циклами
     state = {  // локальный стейт
         editMode: false,
         status: this.props.status
