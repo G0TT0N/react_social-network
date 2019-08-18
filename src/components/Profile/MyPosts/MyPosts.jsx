@@ -16,6 +16,7 @@ const MyPosts = (props) => {
     );
 
     let onAddPost = (values) => {
+        debugger
         props.addPost(values.newPostText);
     };
 

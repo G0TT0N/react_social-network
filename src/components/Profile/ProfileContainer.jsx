@@ -8,7 +8,7 @@ import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        let userId = this.props.match.params.userId;
+        let userId = this.props.match.params.userId; {/* withRouter даёт объект, где сидят данные .match.params.userId  */}
         if (!userId) {
             userId = this.props.authorizedUserId;
             if(!userId) {

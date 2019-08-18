@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FormsControls.module.css';
 
+// форм криэйтер
 const FormControl = ({input, meta, ...props}) => { // *из-за библиотеки приходят сюда не стандартные props, а объект с input и meta
     const hasError = meta.touched && meta.error; // **из meta приходят touched и error, сохраняем
     return (
@@ -14,6 +15,7 @@ const FormControl = ({input, meta, ...props}) => { // *из-за библиот�
     )
 };
 
+// формы
 export const TextArea = (props) => {
     const {input, meta, child, ...restProps} = props;
     return <FormControl {...props}>

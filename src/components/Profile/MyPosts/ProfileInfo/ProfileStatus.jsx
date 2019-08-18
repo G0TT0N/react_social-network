@@ -1,27 +1,24 @@
 import React, {Component} from 'react';
 
 class ProfileStatus extends Component {
-    state = {
+    state = {  // локальный стейт
         editMode: false,
         status: this.props.status
     };
 
-    activateEditMode = () => {
+    activateEditMode = () => { // синтаксис новый, только только приняли. Он не требует байндить контекст, просто вызываем метод.
         // this.state.editMode = true;
         // this.forceUpdate(); перерисует компоненту, но нужно его избегать.
 
-        this.setState({
-            editMode: true  // всё что указано тут, перезатрёт локальный стейт. !!Метод сделает это не сразу, а асинхронно!!
+        this.setState({// всё что указано тут, перезатрёт локальный стейт. !!Метод сделает это не сразу, а асинхронно!!
+            editMode: true
         })
-        // синтаксис новый, только только приняли. Он не требует байндить контекст, просто вызываем метод.
     };
 
-    deactivateEditMode() {
+    deactivateEditMode() {// старый синтаксис, что требует байнд.
         this.setState({
             editMode: false
         });
-        // старый синтаксис, что требует байнд.
-
         this.props.updateStatus(this.state.status)
     };
 
@@ -31,7 +28,7 @@ class ProfileStatus extends Component {
         });
     };
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps) { // целиком приходят prevProps, prevState, snapshot. Берем то что нужно.
         if (prevProps.status !== this.props.status) { //обязательно вызывать с условием, потому что первым идет рендер, потом этот метод. И если нет проверок, то это приведет к зацикливанию.
             this.setState({
                 status: this.props.status
@@ -39,13 +36,13 @@ class ProfileStatus extends Component {
         }
     }
 
+
     render() {
         return (
             <div>
-
                 {!this.state.editMode &&
                 <div>
-                    <span onDoubleClick={this.activateEditMode}>
+                    <span onDoubleClick={this.activateEditMode}> {/* новый синтаксис */}
                         {this.props.status || "no status"}
                     </span>
                 </div>
@@ -55,7 +52,7 @@ class ProfileStatus extends Component {
                 <div>
                     <input
                         autoFocus={true} // при клике на элемент, сразу активирует поле ввода
-                        onBlur={this.deactivateEditMode.bind(this)}
+                        onBlur={this.deactivateEditMode.bind(this)} // старый синтаксис
                         value={this.state.status}
                         onChange={this.onStatusChange}
                     />

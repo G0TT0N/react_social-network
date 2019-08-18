@@ -14,7 +14,7 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    followingInProgress: [],
+    followingInProgress: [], //сюда попадет айди пользователя
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -50,9 +50,9 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_IS_FOLLOWING_PROGRESS:
             return {
                 ...state,
-                followingInProgress: action.isFetching
-                    ? [...state.followingInProgress, action.userId]
-                    : state.followingInProgress.filter(id => id != action.userId)
+                followingInProgress: action.isFetching // если тру, то
+                    ? [...state.followingInProgress, action.userId] // добавить в массив выбранный айди
+                    : state.followingInProgress.filter(id => id != action.userId) // записать только те айди, что не равны выбранному
             };
         default:
             return state;
@@ -71,8 +71,8 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     userId
 });
 
-export const getUsersThunkCreator = (currentPage, pageSize) => {
-    return (dispatch) => {
+export const getUsersThunkCreator = (currentPage, pageSize) => { // санк криэйтор, принимает в себя данные из вне и через замыкание передает в санку
+    return (dispatch) => { // сама санка.
         dispatch(toggleIsFetching(true));
         dispatch(setCurrentPage(currentPage));
         usersAPI.getUsers(currentPage, pageSize).then(data => {

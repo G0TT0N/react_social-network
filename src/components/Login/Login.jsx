@@ -9,7 +9,8 @@ import style from '../common/FormsControls/FormsControls.module.css'
 
 const LoginForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form
+            onSubmit={props.handleSubmit}> {/* отменяет перезагрузку страницы при отправке формы, собирает все данные из формы */}
             <div>
                 <Field
                     component={Input} // импорт компоненты формы
@@ -46,14 +47,14 @@ const LoginForm = (props) => {
     )
 };
 
-const LoginReduxForm = reduxForm({
-    // вводить уникальное имя форм
+const LoginReduxForm = reduxForm({ // вызов хок по документации
+    // вводить уникальное имя формы
     form: 'login'
 })(LoginForm);
 
 
 const Login = (props) => {
-    const onSubmit = (formData) => {
+    const onSubmit = (formData) => { // сюда придут все значения из формы
         props.login(formData.email, formData.password, formData.rememberMe)
     };
 

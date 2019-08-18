@@ -2,7 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {
     setCurrentPage,
-    toggleFollowingProgress, getUsersThunkCreator, follow, unfollow
+    toggleFollowingProgress,
+    getUsersThunkCreator,
+    follow,
+    unfollow
 } from "../../redux/users-reducerr";
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
@@ -13,12 +16,12 @@ import {
     getIsFetching,
     getPageSize,
     getTotalUsersCount,
-    getUsers
+    getUsersSelectorCreator
 } from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize); // вызываем санк криэйтор и передаем в него параметры
     }
 
     onPageChanged = (pageNumber) => {
@@ -41,9 +44,9 @@ class UsersContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => { // реализация через селекторы. Они принмают state на входе и возвращают то, что запрашивают
+let mapStateToProps = (state) => { // реализация через селекторы. Они принимают state на входе и возвращают то, что запрашивают
     return {
-        users: getUsers(state),
+        users: getUsersSelectorCreator(state),
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
@@ -51,17 +54,6 @@ let mapStateToProps = (state) => { // реализация через селек
         followingInProgress: getFollowingInProgress(state),
     }
 };
-
-/*let mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
-    }
-};*/
 
 export default compose(
     connect(mapStateToProps, {

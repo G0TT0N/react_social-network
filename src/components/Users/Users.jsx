@@ -32,14 +32,16 @@ let Users = (props) => {
                             </div>
                             <div>
                                 {user.followed
-                                    ? <button disabled={props.followingInProgress.some(id => id === user.id)}
-                                              onClick={() => {
-                                                  props.unfollow(user.id)
-                                              }}>Unfollow</button>
-                                    : <button disabled={props.followingInProgress.some(id => id === user.id)}
-                                              onClick={() => {
-                                                  props.follow(user.id)
-                                              }}>Follow</button>
+                                    ? <button
+                                        disabled={props.followingInProgress.some(id => id === user.id)} // отключит кнопку если совпал айди. без проверки заблокирует все кнопки, потому что followingInProgress массив, а значит true
+                                        onClick={() => {
+                                            props.unfollow(user.id)
+                                        }}>Unfollow</button>
+                                    : <button
+                                        disabled={props.followingInProgress.some(id => id === user.id)}
+                                        onClick={() => {
+                                            props.follow(user.id)
+                                        }}>Follow</button>
                                 }
                             </div>
                         </span>

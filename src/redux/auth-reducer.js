@@ -33,7 +33,7 @@ export const getAuthUserData = (userId) => {
     return (dispatch) => {
        return  authAPI.me().then(data => {  // промис уходит в app-reducer
             if (data.resultCode === 0) {
-                let {id, login, email} = data.data;
+                let {id, login, email} = data.data; // объект формируется axios, обязательно сверится store.getState().auth
                 dispatch(setAuthUserData(id, email, login, true));
             }
         });
