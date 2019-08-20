@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const ProfileStatusWithHooks = (props) => { // создаем функциональную компоненту на хуках
     /*  let stateWithSetState = useState(false); // useState() возвращает массив из 2х элементов
@@ -8,6 +8,9 @@ const ProfileStatusWithHooks = (props) => { // создаем функциона
     let [editMode, setEditMode] = useState(false); // современный синтаксис с деструктурированным присваниванием
     let [status, setStaus] = useState(props.status); // useState достает из props status и присваивает первому элементу, плюс объявляет функцию, что следит за ним
 
+    useEffect(() => { // хук useEffect.
+        setStaus(props.status); //Запускается после рендера и ререндерит после изменения зависимости
+    }, [props.status]); // зависимость. Нежелательно, но возможно оставить пустым массивом
 
     const activateEditMode = () => {
         setEditMode(true) // меняет editMode на true
