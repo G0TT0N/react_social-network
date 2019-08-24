@@ -29,7 +29,7 @@ const ProfileStatusWithHooks = (props) => { // создаем функциона
         <div>
             {!editMode && // если false то показать span
             <div>
-                <span onDoubleClick={activateEditMode}> {/* вызову функции по двойному клику */}
+                <span onDoubleClick={activateEditMode}> {/* вызов функции по двойному клику */}
                     {props.status || "no status"}
                 </span>
             </div>

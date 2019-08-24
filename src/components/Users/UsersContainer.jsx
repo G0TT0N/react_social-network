@@ -19,7 +19,11 @@ import {
     getUsersSelectorCreator
 } from "../../redux/users-selectors";
 
-class UsersContainer extends React.Component {
+class UsersContainer extends React.Component { // или extends React.PureComponent, чтобы самим не писать оптимизацию рендера
+    shouldComponentUpdate(nextProps, nextState, nextContext) { // метод оптимизация рендера
+        return nextProps != this.props || nextState != this.state // перерисует если true
+    }
+
     componentDidMount() {
         this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize); // вызываем санк криэйтор и передаем в него параметры
     }

@@ -7,7 +7,7 @@ import {TextArea} from "../../common/FormsControls/FormsControls";
 
 const maxLength10 = maxLengthCreator(10); // настройка валидатора
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
     let postsElement = props.postsData.map(elem =>
         <Posts
             message={elem.message}
@@ -16,7 +16,6 @@ const MyPosts = (props) => {
     );
 
     let onAddPost = (values) => {
-        debugger
         props.addPost(values.newPostText);
     };
 
@@ -29,7 +28,7 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-};
+});
 
 let AddNewPostForm = (props) => {
     return (
@@ -44,6 +43,7 @@ let AddNewPostForm = (props) => {
             <div>
                 <button>Add post</button>
             </div>
+
         </form>
     )
 };
