@@ -66,19 +66,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/postsData" />
-      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts" />
-      <recent name="$PROJECT_DIR$/src/components/Profile" />
-      <recent name="$PROJECT_DIR$/src/components/Navbar" />
-      <recent name="$PROJECT_DIR$/src/components/Header" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/redux" />
       <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo" />
       <recent name="$PROJECT_DIR$/src/components/common/FormsControls" />
       <recent name="$PROJECT_DIR$/src/components/Users" />
       <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/common/Paginator" />
+      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/postsData" />
+      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts" />
+      <recent name="$PROJECT_DIR$/src/components/Profile" />
+      <recent name="$PROJECT_DIR$/src/components/Navbar" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -229,7 +229,8 @@
       <workItem from="1566983639526" duration="1031000" />
       <workItem from="1566998724029" duration="356000" />
       <workItem from="1566999089482" duration="3658000" />
-      <workItem from="1567331411034" duration="2347000" />
+      <workItem from="1567331411034" duration="3343000" />
+      <workItem from="1567664077081" duration="7701000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;test2&quot;">
       <created>1563366236300</created>
@@ -261,12 +262,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Settings/Settings.jsx</url>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/redux/profile-reducer.test.js</url>
-          <line>60</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

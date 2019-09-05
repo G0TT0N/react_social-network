@@ -7,10 +7,10 @@ import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import style from '../common/FormsControls/FormsControls.module.css'
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => { // деструктуризация props, берем только нужное оттуда
     return (
         <form
-            onSubmit={props.handleSubmit}> {/* отменяет перезагрузку страницы при отправке формы, собирает все данные из формы */}
+            onSubmit={handleSubmit}> {/* отменяет перезагрузку страницы при отправке формы, собирает все данные из формы */}
             <div>
                 <Field
                     component={Input} // импорт компоненты формы
@@ -36,8 +36,8 @@ const LoginForm = (props) => {
                 /> remember me
             </div>
 
-            {props.error && <div className={style.formSummaryError}> {/* покажет ошибку при неверных данных логина */}
-                {props.error}
+            {error && <div className={style.formSummaryError}> {/* покажет ошибку при неверных данных логина */}
+                {error}
             </div>}
 
             <div>

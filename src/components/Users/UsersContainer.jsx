@@ -6,7 +6,7 @@ import {
     getUsersThunkCreator,
     follow,
     unfollow
-} from "../../redux/users-reducerr";
+} from "../../redux/users-reducer";
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";
@@ -25,11 +25,13 @@ class UsersContainer extends React.Component { // или extends React.PureCompo
     }
 
     componentDidMount() {
-        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize); // вызываем санк криэйтор и передаем в него параметры
+        let {currentPage, pageSize} = this.props;
+        this.props.getUsersThunkCreator(currentPage, pageSize); // вызываем санк криэйтор и передаем в него параметры
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
+        let {pageSize} = this.props;
+        this.props.getUsersThunkCreator(pageNumber, pageSize);
     };
 
     render() {
