@@ -31,8 +31,8 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 
 export const getAuthUserData = () => async (dispatch) => {
     let response = await authAPI.me();
-    if (response.data.resultCode === 0) { // промис уходит в app-reducer
-        let {id, login, email} = response.data.data; // объект формируется axios, обязательно сверится store.getState().auth
+    if (response.resultCode === 0) { // промис уходит в app-reducer
+        let {id, login, email} = response.data; // объект формируется axios, обязательно сверится store.getState().auth
         dispatch(setAuthUserData(id, email, login, true));
     }
 };

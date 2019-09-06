@@ -46,7 +46,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
@@ -66,19 +66,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/redux" />
-      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo" />
-      <recent name="$PROJECT_DIR$/src/components/common/FormsControls" />
-      <recent name="$PROJECT_DIR$/src/components/Users" />
-      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/common/Paginator" />
       <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/postsData" />
       <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts" />
       <recent name="$PROJECT_DIR$/src/components/Profile" />
       <recent name="$PROJECT_DIR$/src/components/Navbar" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo" />
+      <recent name="$PROJECT_DIR$/src/redux" />
+      <recent name="$PROJECT_DIR$/src/components/common/FormsControls" />
+      <recent name="$PROJECT_DIR$/src/components/Users" />
+      <recent name="$PROJECT_DIR$/src/components/Profile/MyPosts" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -98,56 +98,74 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.after deleting length of message should be decrement">
-    <configuration name="after deleting length of message should be decrement" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.ProfileStatus component.callback should be called">
+    <configuration name="ProfileStatus component.after creation input should be displayed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/redux/profile-reducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileStatus.test.jsx" />
       <test-names>
-        <test-name value="after deleting length of message should be decrement" />
+        <test-name value="ProfileStatus component" />
+        <test-name value="after creation input should be displayed" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="message of new post should be corrected" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileStatus component.after creation span should be displayed with correct status" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/redux/profile-reducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileStatus.test.jsx" />
       <test-names>
-        <test-name value="message of new post should be corrected" />
+        <test-name value="ProfileStatus component" />
+        <test-name value="after creation span should be displayed with correct status" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="new post should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileStatus component.after creation span should be displayed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/redux/profile-reducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileStatus.test.jsx" />
       <test-names>
-        <test-name value="new post should be added" />
+        <test-name value="ProfileStatus component" />
+        <test-name value="after creation span should be displayed" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="renders without crashing" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileStatus component.callback should be called" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/App.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileStatus.test.jsx" />
       <test-names>
-        <test-name value="renders without crashing" />
+        <test-name value="ProfileStatus component" />
+        <test-name value="callback should be called" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfileStatus component.input should be displayed in editMode instead of span" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileStatus.test.jsx" />
+      <test-names>
+        <test-name value="ProfileStatus component" />
+        <test-name value="input should be displayed in editMode instead of span" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -166,10 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.after deleting length of message should be decrement" />
-        <item itemvalue="Jest.message of new post should be corrected" />
-        <item itemvalue="Jest.new post should be added" />
-        <item itemvalue="Jest.renders without crashing" />
+        <item itemvalue="Jest.ProfileStatus component.callback should be called" />
+        <item itemvalue="Jest.ProfileStatus component.input should be displayed in editMode instead of span" />
+        <item itemvalue="Jest.ProfileStatus component.after creation span should be displayed with correct status" />
+        <item itemvalue="Jest.ProfileStatus component.after creation input should be displayed" />
+        <item itemvalue="Jest.ProfileStatus component.after creation span should be displayed" />
       </list>
     </recent_temporary>
   </component>
