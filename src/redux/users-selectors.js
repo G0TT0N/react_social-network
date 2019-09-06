@@ -1,7 +1,6 @@
 import {createSelector} from "reselect";
 
 const getUsers = (state) => { // обычный селектор, что возвращает данные из стейта
-    debugger
     return state.usersPage.users
 };
 export const getUsersSelectorCreator = createSelector(getUsers, (users) => { // расширенный селектор из библиотеки, принимает данный обычного селектора и выполняет в себе сложную логику.
