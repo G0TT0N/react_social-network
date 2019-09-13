@@ -1,20 +1,22 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component, Suspense} from 'react';
+import store from "./redux/redux-store";
+import {connect, Provider} from "react-redux";
+import {compose} from "redux";
 import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {initializeApp} from "./redux/app-reducer";
+import './App.css';
+import {withSuspense} from "./hoc/withSuspense";
 import Navbar from "./components/Navbar/Navbar";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
-import {connect, Provider} from "react-redux";
-import {compose} from "redux";
-import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./redux/redux-store";
+
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer')); // ленивая загрузка
+const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer')); // ленивая загрузка
 
 class App extends Component {
     componentDidMount() {
@@ -32,12 +34,19 @@ class App extends Component {
                 <div className='app-wrapper-content'>
                     <Route exact path='/profile/:userId?' render={() => // Route указыввет по какуму пути path='/profile/:userId?' должен произойти рендер компоненты
                         <ProfileContainer/>}/> {/* либо component={<ProfileContainer/>}, но тогда нельзя передать props */}
-                    <Route exact path='/dialogs' render={() =>
-                        <DialogsContainer/>}/> {/* атрибут exact заставляет отрисовывать в точности как указано в конце URL, не захватывая по пути знакомые компоненты  */}
-                    <Route path='/news' render={() => <News/>}/>
+                    <Route exact path='/dialogs' render={() => {
+                        return <Suspense
+                            fallback={
+                                <Preloader/>}> {/*  показывать прелоадер пока загружается компонент, лучше через хок */}
+                            <DialogsContainer/>
+                        </Suspense>
+                    }}/>
+                    <Route exact path='/news' render={() =>
+                        <News/>}/> {/* атрибут exact заставляет отрисовывать в точности как указано в конце URL, не захватывая по пути знакомые компоненты  */}
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
-                    <Route path='/users' render={() => <UsersContainer/>}/>
+                    <Route path='/users'
+                           render={withSuspense(UsersContainer)}/> {/* хок для ленивой загрузки и прелоадера */}
                     <Route path='/login' render={() => <Login/>}/>
                 </div>
             </div>

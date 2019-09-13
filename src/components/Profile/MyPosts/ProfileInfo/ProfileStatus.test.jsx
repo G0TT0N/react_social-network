@@ -10,15 +10,15 @@ describe("ProfileStatus component", () => { // объединяет тесты
     });
     test("after creation span should be displayed", () => { // сам тест
         const component = create(<ProfileStatus status={'test_status'}/>); // создаем тестируемый компонент с нужными пропсами
-        const root = component.root;
-        let span = root.findByType('span');
-        expect(span).not.toBeNull(); // основная проверка
+        const root = component.root; // ссылка созданный компонент
+        let span = root.findByType('span'); // поиск элемента в компоненте
+        expect(span).not.toBeNull(); // ожидание после поиска
     });
     test("after creation input should be displayed", () => { // сам тест
         const component = create(<ProfileStatus status={'test_status'}/>); // создаем тестируемый компонент с нужными пропсами
-        const root = component.root;
+        const root = component.root; // ссылка созданный компонент
         expect(() => {
-            let input = root.findByType('input');
+            let input = root.findByType('input'); // не сможет найти элемент и выдаст ошибку
         }).toThrow(); // основная проверка
     });
     test("after creation span should be displayed with correct status", () => { // сам тест
@@ -36,10 +36,10 @@ describe("ProfileStatus component", () => { // объединяет тесты
         expect(input.props.value).toBe('test_status'); // основная проверка
     });
     test("callback should be called", () => { // сам тест
-        const mockCallback = jest.fn();
+        const mockCallback = jest.fn(); // функция, что считает количество её вызовов
         const component = create(<ProfileStatus status='test_status' updateStatus={mockCallback}/>); // создаем тестируемый компонент с нужными пропсами
         let instance = component.getInstance();
-        instance.deactivateEditMode();
+        instance.deactivateEditMode(); // вызываем метод у компонента
         expect(mockCallback.mock.calls.length).toBe(1); // основная проверка
     });
 });

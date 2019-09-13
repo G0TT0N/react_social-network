@@ -1,4 +1,3 @@
-import React from 'react';
 import profileReducer, {addPostActionCreator, deletePost} from "./profile-reducer";
 
 let state = {
@@ -41,7 +40,7 @@ let state = {
 it('new post should be added', () => { // тест на добавление поста
     // готовим исходные данные
     let action = addPostActionCreator("test_1");
-    // запускаем основное дейтсвие
+    // запускаем основное действие
     let newState = profileReducer(state, action);
     // проверяем ожидание результата newState.postsData.length === 5
     expect (newState.postsData.length).toBe(6);
