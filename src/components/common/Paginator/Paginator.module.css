@@ -1,3 +1,12 @@
-.selectPage {
+.paginator {
+    margin: 10px;
+}
+
+.pageNumber {
+    padding: 2px;
+    cursor: pointer;
+}
+
+.pageNumber.selectedPage {
     font-weight: bold;
 }
