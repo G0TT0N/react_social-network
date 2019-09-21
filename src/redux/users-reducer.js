@@ -1,4 +1,4 @@
-import {profileAPI, usersAPI} from "../api/api";
+import {usersAPI} from "../api/api";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -52,7 +52,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 followingInProgress: action.isFetching // если тру, то
                     ? [...state.followingInProgress, action.userId] // добавить в массив выбранный айди
-                    : state.followingInProgress.filter(id => id != action.userId) // записать только те айди, что не равны выбранному
+                    : state.followingInProgress.filter(id => id !== action.userId) // записать только те айди, что не равны выбранному
             };
         default:
             return state;

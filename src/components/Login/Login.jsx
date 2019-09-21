@@ -41,7 +41,8 @@ const LoginForm = ({handleSubmit, error}) => { // деструктуризаци
             </div>}
 
             <div>
-                <button> Login</button>
+                <button>Sign In</button>
+                <button><a href="https://social-network.samuraijs.com/signUp">Sign Up</a></button>
             </div>
         </form>
     )

@@ -21,7 +21,7 @@ import {
 
 class UsersContainer extends React.Component { // или extends React.PureComponent, чтобы самим не писать оптимизацию рендера
     shouldComponentUpdate(nextProps, nextState, nextContext) { // метод оптимизация рендера
-        return nextProps != this.props || nextState != this.state // перерисует если true
+        return nextProps !== this.props || nextState !== this.state // перерисует если true
     }
 
     componentDidMount() {

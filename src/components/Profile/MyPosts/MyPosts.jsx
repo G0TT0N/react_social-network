@@ -10,6 +10,7 @@ const maxLength10 = maxLengthCreator(10); // настройка валидато
 const MyPosts = React.memo(props => { // c оптимизацией рендера React.memo
     let postsElement = props.postsData.map(elem =>
         <Posts
+            key={elem.id}
             message={elem.message}
             likeCount={elem.likesCount}
         />
