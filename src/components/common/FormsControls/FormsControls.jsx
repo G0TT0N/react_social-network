@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './FormsControls.module.css';
+import {Field} from "redux-form";
 
 // форм криэйтер
 const FormControl = ({input, meta, ...props}) => { // *из-за библиотеки приходят сюда не стандартные props, а объект с input и meta
@@ -29,4 +30,17 @@ export const Input = (props) => {
         <input {...input} {...restProps}/>
     </FormControl>
 };
+
+export const createField = (placeholder, name, validators, component, props = {}, text = "") => (
+    <div>
+        <Field
+            placeholder={placeholder}
+            name={name}
+            validate={validators}
+            component={component}
+            {...props}
+        /> {text}
+    </div>
+);
+
 
