@@ -10,8 +10,10 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     let [editMode, setEditMode] = useState(false);
 
     const onSubmit = (formdata) => {
-        saveProfile(formdata);
-        setEditMode(false);
+        saveProfile(formdata) // санк криэйторы возвращают промис
+            .then(() => {
+                setEditMode(false);
+            })
     };
 
     if (!profile) {
