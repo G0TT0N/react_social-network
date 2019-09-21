@@ -31,6 +31,7 @@ export const usersAPI = {
 };
 
 export const profileAPI = {
+
     getProfile(userId) {
         return instance.get(`profile/` + userId) // приходит из withRouter
             .then(response => response.data);
@@ -42,6 +43,15 @@ export const profileAPI = {
 
     updateStatus(status) {
         return instance.put(`profile/status`, {status: status}); // или просто , {status}
+    },
+    savePhoto(photoFile) { // чтобы отправить файл на сервер, нужно сформировать объект даты
+        const formData = new FormData(); // формируем объект
+        formData.append("image", photoFile); // добавляем в конец файл изображения
+        return instance.put(`profile/photo`, formData, { // отправляем на сервер по такому пути, такой объект, с такими настройками заголовков
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 };
 

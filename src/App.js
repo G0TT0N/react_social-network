@@ -67,12 +67,16 @@ const AppContainer = compose(
 
 const MainApp = () => {
     return (
-        <BrowserRouter>   {/* позволяет использовать рендер компонент по ссылкам согласно их URL пути */}
+        <BrowserRouter //позволяет использовать рендер компонент по ссылкам согласно их URL пути
+            basename={process.env.PUBLIC_URL}> {/* атрибут для настройки окружения. Дословно атрибут говорит возьми PUBLIC_URL из process.env. Используется для GithubPages */}
             <Provider store={store}> {/* контекст от реакт-редакса */}
                 <AppContainer/>
             </Provider>
         </BrowserRouter>
+        // для GithubPages оборачивать <HashRouter>
     )
 };
+
+
 
 export default MainApp
