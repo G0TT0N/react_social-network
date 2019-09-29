@@ -1,16 +1,17 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import {Input} from "../common/FormsControls/FormsControls";
+import {createField, Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import style from '../common/FormsControls/FormsControls.module.css'
 
-const LoginForm = ({handleSubmit, error}) => { // деструктуризация props, берем только нужное оттуда
+const LoginForm = ({handleSubmit, error, captchaUrl}) => { // деструктуризация props, берем только нужное оттуда
     return (
         <form
-            onSubmit={handleSubmit}> {/* отменяет перезагрузку страницы при отправке формы, собирает все данные из формы */}
+            onSubmit={handleSubmit} // отменяет перезагрузку страницы при отправке формы, собирает все данные из формы
+        >
             <div>
                 <Field
                     component={Input} // импорт компоненты формы
@@ -35,7 +36,10 @@ const LoginForm = ({handleSubmit, error}) => { // деструктуризаци
                     name={"rememberMe"}
                 /> remember me
             </div>
-
+            {captchaUrl && <div>
+                <img src={captchaUrl} alt="captcha"/>
+                {createField("Captcha", "captcha", [required], Input, {})}
+            </div>}
             {error && <div className={style.formSummaryError}> {/* покажет ошибку при неверных данных логина */}
                 {error}
             </div>}
@@ -56,7 +60,7 @@ const LoginReduxForm = reduxForm({ // вызов хок по документа�
 
 const Login = (props) => {
     const onSubmit = (formData) => { // сюда придут все значения из формы
-        props.login(formData.email, formData.password, formData.rememberMe)
+        props.login(formData.email, formData.password, formData.rememberMe, props.captcha)
     };
 
     if (props.isAuth) {
@@ -66,13 +70,14 @@ const Login = (props) => {
     return (
         <div>
             <h1>login</h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>
     )
 };
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl,
 });
 
 export default connect(mapStateToProps, {login})(Login);
